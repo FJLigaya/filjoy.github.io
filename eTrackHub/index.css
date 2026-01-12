@@ -1,0 +1,572 @@
+/* index.css - responsive update */
+/* Root variables */
+:root {
+    --primary-red: #8B0000;
+    --secondary-red: #A32020;
+    --primary-green: #38761D;
+    --background-gray: #D3D3D3;
+    --hero-gray: #AAAAAA;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+
+    /* spacing scale for responsive paddings */
+    --space-sm: 12px;
+    --space-md: 24px;
+    --space-lg: 48px;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--background-gray);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* center main content on large screens */
+    align-items: stretch;
+}
+
+/* Header Styling (Top Bar) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-md);
+    min-height: 44px;
+    background-color: var(--text-light);
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+}
+
+/* Logo area */
+.logo-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* responsive logo size */
+.logo {
+    width: clamp(30px, 4.5vw, 42px);
+    height: clamp(30px, 4.5vw, 42px);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+/* header buttons */
+.header-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 0.95rem;
+}
+
+.btn-login {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+}
+
+.btn-register {
+    background-color: var(--text-light);
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+}
+
+.btn:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+/* Login Dropdown */
+.login-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 110px;
+    background-color: var(--text-light);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 10;
+    display: none;
+    transform: translateY(-6px);
+    opacity: 0;
+    transition: all 0.18s ease-out;
+    min-width: 180px;
+}
+
+.login-dropdown.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.login-dropdown a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.login-dropdown a:hover {
+    background-color: #F0F0F0;
+}
+
+/* Main Content (Hero Section) */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: clamp(20px, 5vw, 50px) clamp(16px, 6vw, 90px);
+    background-color: var(--hero-gray);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 32px;
+    transition: opacity 1s ease-in;
+    flex-wrap: wrap; /* allow wrapping for small screens */
+}
+
+/* hero columns */
+.hero-left {
+    flex: 1 1 480px; /* grow, shrink, base */
+    max-width: 60%;
+    animation: slideInLeft 1s ease-out forwards;
+    opacity: 0;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.hero-right {
+    flex: 1 1 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 220px;
+}
+
+/* responsive typography */
+.system-name {
+    font-size: clamp(1.6rem, 6.5vw, 4rem);
+    font-weight: 900;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.02;
+}
+
+.hero-text {
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    color: var(--text-light);
+    margin: 12px 0;
+    line-height: 1.6;
+    max-width: 70ch;
+}
+
+.btn-about-us {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    padding: 6px 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 0.85rem;
+    line-height: 2;
+    width: 100px;
+}
+
+/* Graphic placeholder: responsive size using clamp */
+.ics-graphic-placeholder {
+    width: clamp(160px, 36vw, 350px);
+    height: clamp(160px, 36vw, 350px);
+    border-radius: 50%;
+    background-color: var(--secondary-red);
+    border: 5px solid var(--text-light);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ics-graphic-placeholder::after {
+    content: "ICS Logo";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-light);
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.22s ease-out;
+    padding: 24px;
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content, .modal-content-register, .modal-content-about-us {
+    background-color: var(--background-gray);
+    padding: clamp(18px, 3.5vw, 40px);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 420px;
+    animation: modalSlideIn 0.3s ease-out;
+    position: relative;
+    margin: 0 12px;
+}
+
+.modal-content-register {
+    max-width: 900px;
+}
+
+.modal-content-about-us {
+    max-width: 720px;
+    background-color: var(--text-light);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-role-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.close-btn {
+    color: var(--text-dark);
+    float: right;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 16px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+/* Login Form Styles */
+#loginForm {
+    background-color: var(--text-light);
+    padding: clamp(12px, 2.5vw, 30px);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-group .icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.btn-log-in {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    font-size: 1.03rem;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 12px;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: var(--primary-red);
+}
+
+/* Registration Form Styles */
+.registration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 0.9em;
+}
+
+.group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.registration-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-register-green {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 10px 28px;
+}
+
+.btn-cancel-red {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    padding: 10px 28px;
+}
+
+/* About Us Styles */
+.about-us-box {
+    padding: 16px;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-title {
+    color: var(--primary-red);
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 10px;
+}
+
+.modal-content-about-us p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.about-us-slogan {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    font-style: italic;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* -------------------------------
+   Responsive breakpoints
+   ------------------------------- */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: clamp(18px, 6vw, 40px);
+        gap: 24px;
+    }
+
+    .hero-left {
+        max-width: 55%;
+    }
+
+    .login-dropdown {
+        right: 90px;
+    }
+
+    .registration-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets and large phones */
+@media (max-width: 768px) {
+    .header {
+        padding: 8px 16px;
+    }
+
+    .header-buttons {
+        gap: 8px;
+    }
+
+    .main-content {
+        padding: 20px;
+        gap: 18px;
+    }
+
+    /* stack hero sections vertically for narrow screens */
+    .hero-left,
+    .hero-right {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .hero-left {
+        order: 1;
+        padding-bottom: 8px;
+    }
+
+    .hero-right {
+        order: 2;
+    }
+
+    .system-name {
+        text-align: left;
+    }
+
+    .login-dropdown {
+        right: 16px;
+        min-width: 140px;
+    }
+
+    .registration-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .modal-content, .modal-content-register, .modal-content-about-us {
+        max-width: 92%;
+        padding: 18px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .header {
+        padding: 6px 12px;
+        min-height: 40px;
+    }
+
+    .logo {
+        width: clamp(28px, 12vw, 36px);
+        height: clamp(28px, 12vw, 36px);
+    }
+
+    .btn {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .system-name {
+        font-size: clamp(1.25rem, 11vw, 2rem);
+        letter-spacing: 1px;
+    }
+
+    .hero-text {
+        font-size: 0.95rem;
+    }
+
+    .ics-graphic-placeholder {
+        width: clamp(120px, 34vw, 240px);
+        height: clamp(120px, 34vw, 240px);
+        border-width: 4px;
+    }
+
+    .registration-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-dropdown {
+        right: 8px;
+        left: auto;
+        min-width: 130px;
+    }
+
+    .modal-content, .modal-content-register, .modal-content-about-us {
+        padding: 14px;
+        max-width: 96%;
+    }
+}

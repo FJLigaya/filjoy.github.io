@@ -1,0 +1,436 @@
+/* student.css */
+:root {
+    --primary-red: #8B0000;
+    --secondary-red: #A32020;
+    --primary-green: #38761D;
+    --background-gray: #D3D3D3;
+    --content-gray: #F0F0F0;
+    --sidebar-dark: #333333;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--background-gray);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    gap: 10px;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.tcgclogo-placeholder { background-color: #A32020; }
+.icslogo-placeholder { background-color: #38761D; }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.system-name-top {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.search-box {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 250px;
+    transition: all 0.3s;
+}
+
+.search-box:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.5);
+}
+
+.notification-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.notification-count {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    font-weight: 700;
+    z-index: 5;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-dark);
+    color: var(--text-light);
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.profile-card {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #F8BBD0; /* Placeholder color */
+    margin-bottom: 10px;
+    border: 3px solid var(--text-light);
+}
+
+.profile-info .profile-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    display: block;
+}
+
+.profile-info .profile-course {
+    font-size: 0.9em;
+    color: #ccc;
+    display: block;
+}
+
+.edit-profile-btn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.nav-menu {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #555555;
+    color: var(--text-light);
+}
+
+.nav-item.active {
+    border-left: 5px solid var(--primary-red);
+    padding-left: 15px;
+}
+
+.btn-logout {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 20px;
+    transition: opacity 0.2s;
+}
+
+.btn-logout:hover {
+    opacity: 0.9;
+}
+
+/* Content Area Styling */
+.content-area {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: var(--background-gray);
+    overflow-y: auto;
+}
+
+/* View Sections */
+.view {
+    display: none;
+    background-color: var(--content-gray);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view.active {
+    display: block;
+}
+
+/* Dashboard Metrics (Image 9) */
+.dashboard-welcome {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.dashboard-metrics {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.metric-card {
+    flex: 1;
+    background-color: var(--text-light);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.metric-title {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--text-dark);
+}
+
+.metric-value.amount { color: var(--primary-green); }
+.metric-value.penalty { color: var(--secondary-red); }
+
+.clearance-status {
+    background-color: var(--text-light);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.status-validation {
+    color: var(--secondary-red);
+}
+
+/* Data Table Styles (Image 11, 12, 13) */
+h2 {
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.filter-year {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.data-table {
+    overflow-x: auto;
+}
+
+.data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+.data-table thead tr:first-child th {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.data-table tbody tr:hover {
+    background-color: #F0F0F0;
+}
+
+/* Attendance specific table headers */
+.attendance-table th {
+    text-align: center;
+}
+.attendance-table .status-header {
+    text-align: center;
+    background-color: var(--secondary-red);
+}
+.attendance-table .fa-check { color: var(--primary-green); }
+.attendance-table .fa-xmark { color: var(--secondary-red); }
+.view-receipt-btn {
+    background: none;
+    border: none;
+    color: var(--primary-red);
+    cursor: pointer;
+    font-weight: 500;
+}
+.view-receipt-btn:hover { text-decoration: underline; }
+
+/* Modal Styles (Image 10, 14) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content-small {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.modal-content-small p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-confirm-green {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn-cancel-red {
+    background-color: var(--primary-red);
+    color: var(--text-light);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* Notification Modal */
+.modal-content-notification {
+    background-color: var(--content-gray);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.notification-item {
+    background-color: var(--text-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.notification-item strong {
+    color: var(--primary-red);
+    font-weight: 700;
+}

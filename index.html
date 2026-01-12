@@ -1,0 +1,135 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eTrackHub - ICS Electronic Transaction and Records Management System</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="tcgclogo1.png" alt="TCGC Logo" class="header-logo" style="height:40px; width:auto; margin-right:8px;">
+            <img src="icslogo1.png" alt="ICS Logo" class="header-logo" style="height:40px; width:auto;">
+        </div>
+        <div class="header-buttons">
+            <button id="loginBtn" class="btn btn-login">Login</button>
+            <button id="registerBtn" class="btn btn-register">Register</button>
+        </div>
+        
+        <div id="loginDropdown" class="login-dropdown">
+            <a href="#" data-role="adviser">ICS-ISC Adviser</a>
+            <a href="#" data-role="officer">ICS-ISC Officer</a>
+            <a href="#" data-role="student">Student</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-left">
+            <h1 class="system-name" style="font-size: clamp(28px, 6.5vw, 100px); line-height: 1.05; margin: 0 0 0.5rem 0; font-weight: 700; word-break: break-word; overflow-wrap: anywhere;">
+                eTrackHub
+            </h1>
+            <p class="hero-text" style="font-size: clamp(16px, 2.6vw, 25px); width: 100%; max-width: 720px; line-height: 1.45; margin: 1rem 0; color: inherit;">
+                Your digital hub for secure payments, attendance tracking, and record transparency at the Institute of Computer Studies.
+            </p>
+            <button id="aboutUsBtn" class="btn btn-about-us">About Us</button>
+        </div>
+        <div class="hero-right">
+            <img src="icslogo1.png" alt="ICS Large Logo" class="big-ics-logo" style="max-width:420px; height:400px;">
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalRoleTitle" class="modal-role-title"></div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label id="usernameLabel" for="username"></label>
+                    <input type="text" id="username" name="username" required>
+                    <i class="fa-solid fa-user icon"></i>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <i class="fa-solid fa-lock icon"></i>
+                </div>
+                <button type="submit" class="btn btn-log-in">Log In</button>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content-register">
+            <span class="close-btn">&times;</span>
+            <h2>CREATE ACCOUNT</h2>
+            <form id="registrationForm">
+                <div class="registration-grid">
+                    <div class="group">
+                        <label for="regId">ID number *</label>
+                        <input type="text" id="regId" name="regId" required>
+                    </div>
+                    <div class="group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="group">
+                        <label for="yearLevel">Year Level *</label>
+                        <input type="text" id="yearLevel" name="yearLevel" required>
+                    </div>
+                    
+                    <div class="group">
+                        <label for="regPassword">Password *</label>
+                        <input type="password" id="regPassword" name="regPassword" required>
+                    </div>
+                    <div class="group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                    </div>
+                    <div class="group">
+                        <label for="religion">Religion *</label>
+                        <input type="text" id="religion" name="religion" required>
+                    </div>
+
+                    <div class="group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="registration-actions">
+                    <button type="submit" class="btn btn-register-green">Register</button>
+                    <button type="button" class="btn btn-cancel-red">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="aboutUsModal" class="modal">
+        <div class="modal-content-about-us">
+            <span class="close-btn">&times;</span>
+            <div class="about-us-box">
+                <h2 class="about-us-title">About Us</h2>
+                <p><strong>eTrackHub: ICS Electronic Transaction and Records Management System</strong> is a web-based platform developed for the Institute of Computer Studies (ICS) of Tangub City Global College.</p>
+                <p>It aims to streamline and automate student transactions such as payments, attendance, and sanctions, replacing traditional manual processes with a centralized digital system.</p>
+                <p>Through secure, role-based access, ICS-ISC Officers can record and manage transactions efficiently, the ICS-ISC Adviser can review and validate reports, and students can view their own records in real time for transparency and accountability.</p>
+                <p>By digitizing essential processes, eTrackHub helps the ICS achieve greater accuracy, efficiency, and data integrity, fostering a smarter and more transparent student record management system.</p>
+                <em class="about-us-slogan">Empowering Transparency. Simplifying Processes. Building a Smarter ICS.</em>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
